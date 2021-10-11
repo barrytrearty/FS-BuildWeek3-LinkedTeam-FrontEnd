@@ -17,7 +17,7 @@ const MidSection = ({ addPostClosed, addImagePostClosed }) => {
   const getPosts = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/ `,
+        `https://linkedinteam.herokuapp.com/posts `,
 
         {
           headers: {

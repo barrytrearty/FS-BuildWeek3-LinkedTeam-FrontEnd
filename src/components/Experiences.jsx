@@ -6,7 +6,7 @@ import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 import { BiPurchaseTag } from "react-icons/bi";
-import "./EditModal.css"
+import "./EditModal.css";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -18,7 +18,7 @@ const Experiences = ({ match }) => {
     isMe = false;
   }
 
-  const userId = "611d2acd2d52620015b6de6e";
+  const { userId } = match.params;
 
   const [addModalClosed, setAddModalClosed] = useState(true);
   const [editModalClosed, setEditModalClosed] = useState(true);
@@ -27,14 +27,14 @@ const Experiences = ({ match }) => {
   const getArray = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+        `https://linkedinteam.herokuapp.com/${userId}/experiences`
 
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZTBiMTJkNTI2MjAwMTViNmRjOGQiLCJpYXQiOjE2MzEwMTE2NDMsImV4cCI6MTYzMjIyMTI0M30.wxo-L7vPKDv0DeIAf5S_h2cwEHJqqvPcL0Il7sQlPYs",
-          },
-        }
+        // {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZTBiMTJkNTI2MjAwMTViNmRjOGQiLCJpYXQiOjE2MzEwMTE2NDMsImV4cCI6MTYzMjIyMTI0M30.wxo-L7vPKDv0DeIAf5S_h2cwEHJqqvPcL0Il7sQlPYs",
+        //   },
+        // }
       );
       let experienceArray1 = await response.json();
       setExperienceArray(experienceArray1);

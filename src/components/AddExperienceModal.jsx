@@ -66,15 +66,15 @@ function AddExperienceModal({ setAddModalClosed }) {
   const postData = async () => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/experiences/",
+        "https://linkedinteam.herokuapp.com/experiences/",
         {
           method: "POST",
           body: JSON.stringify(experience),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
 
           // redirect: "follow",
         }
@@ -178,7 +178,7 @@ function AddExperienceModal({ setAddModalClosed }) {
     <>
       <a onClick={handleShow} className="modallink">
         <div className="editbutton mr-3">
-        <CgMathPlus size={27} className="m-auto"/>
+          <CgMathPlus size={27} className="m-auto" />
         </div>
       </a>
 
