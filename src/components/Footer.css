@@ -1,0 +1,43 @@
+footer {
+  position: relative;
+  /* left:0; */
+  bottom: 0;
+  /* right:0; */
+  margin-left: 165px;
+}
+
+footer a {
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+
+.navbar a {
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.DropdownButton {
+  background-color: white;
+  width: 250px;
+}
+
+#dropdown-basic-button {
+  min-width: 270px;
+  max-height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+#managePrivacy {
+  color: pink;
+}
+
+#linkedinlogo {
+  width: 6rem;
+  height: auto;
+  margin-bottom: 0.3rem;
+}

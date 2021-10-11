@@ -1,0 +1,40 @@
+.ShowDiv{
+  width: 100%;
+}
+
+.ShowDiv button {
+  box-shadow: none !important;
+}
+
+#ShowButton {
+  border: 0px !important;
+  border-style: none !important;
+  background-color: transparent;
+  color: black;
+
+}
+
+#ShowButton:hover {
+  background-color: transparent;
+  color: black;
+  transform: scale(1.1);
+  border: 0px !important;
+  border-style: none !important;
+
+}
+
+#ShowButton:active {
+  background-color: transparent;
+  color: black;
+  border: 0px !important;
+  border-style: none !important;
+
+}
+
+.ShowButton:focus{
+    outline:none !important;
+}
+
+
+/* button:focus {outline:0;} */
+

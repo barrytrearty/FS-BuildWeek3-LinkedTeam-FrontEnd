@@ -1,0 +1,16 @@
+.profileimageNav {
+    max-width: 2.8rem;
+    max-height: auto;
+    
+}
+
+.navbarprofilebutton {
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    max-height: 1.8rem;
+}
+
+#navprofiletext {
+    font-weight: 700;
+}

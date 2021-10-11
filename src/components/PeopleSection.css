@@ -1,0 +1,24 @@
+.PeopleContainer{
+    border: 1px solid lightgray;
+    background-color:white;
+    border-radius: 1%;
+    max-width: 21vw !important;
+    margin-left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.PeopleContainer .row .PeopleCol:last-child{
+    border-bottom: 1px solid lightgray
+}
+
+#ShowButton {
+    font-size: smaller;
+    font-weight: 600;
+}
+
+.PeopleContainer:first-child{
+    margin-top: 6rem;
+}
+
+

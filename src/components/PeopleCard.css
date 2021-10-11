@@ -1,0 +1,22 @@
+.PeopleCardImage{
+    height: 6rem; 
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.MessageButton{
+    border-radius: 5rem;
+    border-color: #6C757D;
+    width: 5rem;
+    padding-top: 0.17rem;
+    padding-bottom: 0.17rem;
+    z-index: 5;
+
+}
+
+.PeopleCard{
+    border-style: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

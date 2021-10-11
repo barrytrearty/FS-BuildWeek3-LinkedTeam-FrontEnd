@@ -1,0 +1,54 @@
+* {
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .Nav {
+    
+    position: fixed;
+    top: 3.9rem;
+    z-index: 2;
+    padding-top: 1rem;
+  }
+
+  .scrollablenavimg img  {
+    position: fixed;
+    right: 10px;
+    top:8px;
+  }
+ 
+  .Nav__logo{
+    margin-top: 12px;
+  }
+  .Nav__white{
+    z-index: 2;
+    background: rgb(243, 243, 243);
+    width: 100%;
+    border: 1px solid rgb(233, 233, 233);
+  }
+  
+  .scrollablenavprofile {
+      position: fixed;
+      z-index: 2;
+      margin-left: 3rem;
+  }
+
+  .scrollednavbutton {
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    max-height: 1.8rem;
+    margin-left: 52rem;
+    margin-top: 0.2rem;
+  }
+
+  .scrollednavbarprofileimage {
+    max-height: 2rem;
+    max-width: 2rem;
+    
+}
+
+.navprofiletext {
+    margin-bottom: 0rem;
+    
+}

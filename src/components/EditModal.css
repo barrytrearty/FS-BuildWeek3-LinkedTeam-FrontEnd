@@ -1,0 +1,46 @@
+#dropdown-button-drop {
+    color: black;
+    background-color: white;
+    border-color: rgb(114, 114, 114);
+    min-width: 200px;
+    text-align: left;
+    max-height: 30px;
+   
+}
+
+#editmodalbutton {
+    font-weight: 600;
+    height: 2.2rem;
+    border-radius: 30px;
+    margin-left: 3rem;
+    font-size: 0.9rem
+
+}
+
+.modallink {
+    background-color: white;
+    color: rgb(97, 97, 97);
+}
+
+.p-heading {
+    font-size: 0.9rem;
+}
+
+.p-secondary {
+    font-size: 0.8rem;
+}
+
+.startenddate {
+    font-size: 0.7rem;
+}
+
+.editbutton {
+    border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+}
+
+.editbutton:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}

@@ -1,0 +1,77 @@
+.connectbutton {
+    border-radius: 30px;
+    font-size: 12px;
+  }
+  .navicon {
+    transform: scale(1.5);
+  }
+  .navContainer {
+    background-color: white;
+    min-width: 100vw;
+    /* margin-bottom: 4rem; */
+    position: fixed;
+    z-index: 99;
+    /* margin-bottom: 10rem; */
+  
+  }
+  
+  .navContainer .NavRow {
+    width: 80vw;
+    background-color: white;
+  }
+  .logodiv {
+    position: relative;
+    display: flex !important;
+    flex-direction: row !important;
+    left: 5
+  }
+  
+  .LinkedInLogo{
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+  
+  .NavLogos {
+    position: absolute;
+    right: 0;
+  }
+  
+  .SearchBar{
+      border-radius: 1rem;
+  }
+  
+.freepremium {
+    margin-left: 2rem;
+}
+
+.navContainer .NavRow {
+  width: 80vw;
+  background-color: white;
+
+}
+
+.logodiv {
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  left: 5
+}
+
+.LinkedInLogo{
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+.NavLogos {
+  position: absolute;
+  right: 0;
+}
+
+
+#inlineFormInputGroup {
+    background-color: #EEF3F8;
+    border-left: 0;
+    padding-left: 0;
+    width: 12rem;
+}
+

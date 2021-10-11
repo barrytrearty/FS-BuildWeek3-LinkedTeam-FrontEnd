@@ -1,0 +1,416 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* profile-top-card (James)*/
+body {
+  background-color: #f3f2ef !important;
+}
+
+.profileimage {
+  border: 4px solid white;
+  width: 10rem;
+  margin-top: 65px;
+}
+
+.profileimagewrapper {
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.editprofileicon {
+  margin: auto;
+}
+
+#editprofilediv {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+}
+
+#editprofilediv:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+#editprofileonclick {
+  height: 152px;
+  width: 152px;
+  position: absolute;
+  border-radius: 50%;
+  top: 69px;
+  left: 28px;
+}
+
+.bannerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 30% !important;
+}
+button.messagebutton {
+  background-color: #1d66c2;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+}
+
+button.morebutton {
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.modallink {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#linkedincontacticon {
+  margin-right: 15px;
+}
+#emailcontacticon {
+  margin-right: 20px;
+}
+.contactdetailstext {
+  font-weight: 600;
+}
+#contactnametext {
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+.contactdetailslinks {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.educationtext {
+  font-size: 0.9rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.educationicon {
+  height: 32px;
+  width: 32px;
+}
+.sectionheader {
+  font-weight: 400 !important;
+  font-size: 20px !important;
+}
+
+.sectiontext {
+  font-size: 14px !important;
+}
+
+/*  after main section (Barry)*/
+.after-main section {
+  background-color: white;
+  line-height: 1.5;
+}
+
+.after-main p {
+  margin: 0;
+  /* padding */
+}
+
+.after-main h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.after-main .activities h4 {
+  font-size: 14px;
+}
+
+.after-main .activities .activity {
+  font-weight: bold;
+}
+
+.after-main .activities a h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.after-main .activities a {
+  text-decoration: none;
+}
+
+/* .after-main .activities a:hover {
+  background-color: grey;
+} */
+
+.after-main h5 {
+  font-size: 16px;
+}
+
+.p-heading {
+  font-weight: 600;
+}
+
+.p-secondary {
+  font-size: 1rem;
+}
+
+/* .p-muted {
+  color: grey;
+} */
+
+.after-main img,
+#activity-card img {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* ADD EXPERIENCE MODAL SECTION */
+#savemodalbutton {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#cancelmodalbutton {
+  border-radius: 25px;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton:hover {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton:disabled {
+  border-radius: 25px;
+  background-color: rgba(104, 174, 231, 0.185);
+  color: grey;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+#cancelmodalbutton:hover {
+  background-color: #1d66c2;
+  border-radius: 25px;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+.modal-content {
+  -webkit-border-radius: 11px !important;
+  -moz-border-radius: 11px !important;
+  border-radius: 11px !important;
+  box-shadow: 0px 0px 5px rgb(61, 61, 61);
+}
+
+/* #activity-card img {
+  width: 4rem;
+  height: 4rem;
+} */
+
+/* NEWS FEED SECTION */
+.cardstyling {
+  border-radius: 8px !important;
+  margin-bottom: 6px;
+}
+
+#feedprofileheadersection a {
+  color: inherit;
+}
+
+#feedprofilelinkssection a {
+  color: inherit;
+}
+
+#profileconnectionssection {
+  line-height: 14px;
+}
+
+#profileconnectionssection:hover {
+  line-height: 14px;
+  background-color: rgba(104, 174, 231, 0.185);
+}
+#profileconnectionssection a:hover {
+  text-decoration: none;
+}
+
+#viewedprofilesection {
+  line-height: 14px;
+  padding-top: 4px;
+  padding-bottom: 10px;
+}
+
+#viewedprofilesection:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+#viewedprofilesection a:hover {
+  text-decoration: none;
+}
+
+#reactivatepremiumsection a:hover {
+  text-decoration: none;
+}
+
+#reactivatepremiumsection:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+.profileimagesmall {
+  border: 4px solid white;
+  width: 5rem;
+  margin-top: 25px;
+  z-index: 4 !important;
+}
+
+.feedleftcards {
+  font-size: 15px;
+}
+
+.feedadminlinks a {
+  color: inherit;
+}
+
+.feedadminlinks a:hover {
+  color: inherit;
+}
+
+.feedboldtext {
+  font-weight: 500;
+}
+
+#feedmyitems {
+  padding-left: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+#feedmyitems:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+#feedmyitems a:hover {
+  text-decoration: none;
+}
+
+.feedleftsectionheader {
+  font-size: 16px !important;
+}
+
+#feedprofileimagelink {
+  z-index: 4 !important;
+}
+
+.adminimagesmall {
+  width: 4rem;
+}
+
+#analyticslink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#discovertext {
+  font-size: 14px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#discovertext a:hover {
+  text-decoration: none;
+}
+
+#discovertext:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+#eventsplusdiv {
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  display: flex;
+}
+
+#eventsplusdiv:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+.imageuploadtext {
+  font-weight: 500;
+  border: 1px solid rgba(104, 174, 231, 0.185);
+}
+
+.imageuploadtext:hover {
+  font-weight: 500;
+  background-color: rgba(104, 174, 231, 0.185);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  cursor: pointer;
+}
+
+.spinnerrelative {
+  position: relative;
+}
+
+.imagespinner {
+  z-index: 5;
+  position: absolute;
+  left: -40px;
+}
