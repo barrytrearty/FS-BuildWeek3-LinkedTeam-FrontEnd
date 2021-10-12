@@ -25,13 +25,18 @@ function AddPost({ MyImage, setAddPostClosed }) {
 
   const [postContent, setPostContent] = useState("");
 
-  const endpoint = "https://linkedinteam.herokuapp.com/posts/";
+  //This fetch is for post without image
+
+  const endpoint = "https://linkedinteam.herokuapp.com/posts";
   const createPost = async () => {
     try {
       let response = await fetch(endpoint, {
         method: "POST",
         body: JSON.stringify({
           text: postContent,
+          username: "James",
+          user: "6164117136d383058470339f",
+          image: "url",
         }),
         headers: {
           "Content-Type": "application/json",

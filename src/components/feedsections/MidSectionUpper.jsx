@@ -86,7 +86,7 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
 
   useEffect(() => getMyProfile(), []);
 
-  const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const endpoint = "https://linkedinteam.herokuapp.com/posts/";
 
   const createPost = async () => {
     try {
@@ -94,18 +94,21 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
         method: "POST",
         body: JSON.stringify({
           text: postContent,
+          user: "6164117136d383058470339f",
+          username: "James",
+          image: "url",
         }),
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // Authorization:
+          //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
         },
       });
 
       if (response.ok) {
         console.log(response.json());
       } else {
-        alert("Error! Please complete the form!");
+        alert("Error! Please complete the form fool!");
       }
     } catch (error) {
       alert(error);
@@ -114,14 +117,14 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
   const fetchNewestPostID = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/`,
+        `https://linkedinteam.herokuapp.com/posts/`
 
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
-        }
+        // {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        //   },
+        // }
       );
       let PostArray = await response.json();
       let lastpost = PostArray[PostArray.length - 1];
@@ -135,24 +138,25 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
     setIsLoading(true);
     await createPost();
     let id = await fetchNewestPostID();
-    if (imageFile.length !== 0) postImage(id);
+    console.log(id);
+    await postImage(id);
   };
 
   const postImage = async (id) => {
     const formData = new FormData();
-    formData.append("post", imageFile);
+    formData.append("post-picture", imageFile);
 
     console.log(formData);
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        `https://linkedinteam.herokuapp.com/posts/${id}`,
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
+          // headers: {
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
         }
       );
 
@@ -162,7 +166,7 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
         setIsLoading(false);
         console.log(reply);
       } else {
-        alert("Error! Please complete the form!");
+        alert("Error! Please complete the form sucka!");
       }
     } catch (error) {
       alert(error);

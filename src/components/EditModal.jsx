@@ -120,14 +120,16 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
           area: area,
         }),
 
-        // headers: {
-        //   Authorization:
-        //     "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        //   "Content-Type": "application/json",
-        // },
+        headers: {
+          // Authorization:
+          //   "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          "Content-Type": "application/json",
+        },
       });
       if (response.ok) {
         console.log(role);
+        console.log(userId);
+        console.log(experienceId);
         const ExperienceResponse = await response.json();
 
         // console.log(ExperienceResponse);

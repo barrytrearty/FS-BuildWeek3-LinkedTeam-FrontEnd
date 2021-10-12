@@ -59,7 +59,7 @@ const EditProfileModal = ({ setclosed }) => {
 
   const postImage = async () => {
     const formData = new FormData();
-    formData.append("profile", imageFile);
+    formData.append("user-picture", imageFile);
 
     console.log(formData);
     try {
@@ -81,7 +81,7 @@ const EditProfileModal = ({ setclosed }) => {
         setIsLoading(false);
         console.log(reply);
       } else {
-        alert("Error! Please complete the form!");
+        alert("Error! Please complete the form MOFO!");
       }
     } catch (error) {
       alert(error);

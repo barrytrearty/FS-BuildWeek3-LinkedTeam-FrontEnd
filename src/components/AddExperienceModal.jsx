@@ -29,7 +29,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
     description: "",
     area: "",
     username: userId,
-    // image: "",
+    image: "",
     // "role": "CTO",
     //     "company": "Strive School",
     //     "startDate": "2019-06-16",
@@ -67,6 +67,11 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
     setExperience({ ...experience, endDate: parsedDate });
     console.log(experience);
   }, [endDateObj]);
+
+  // useEffect(() => {
+  //   setExperience({ ...experience, image: imageFile });
+  //   console.log("refresh");
+  // }, [imageFile]);
 
   const postData = async () => {
     try {
@@ -138,7 +143,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
     await postData();
     let id = await fetchNewestExperienceID();
     console.log(id);
-    if (imageFile.length > 0) await postImage(id);
+    postImage(id);
     if (imageFile === undefined) console.log("Undefined image");
   };
 
@@ -152,7 +157,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
 
   const postImage = async (id) => {
     const formData = new FormData();
-    formData.append("experience", imageFile);
+    formData.append("exp-picture", imageFile);
 
     console.log(formData);
     try {
