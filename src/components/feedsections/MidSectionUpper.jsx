@@ -18,8 +18,8 @@ import { RiArticleLine } from "react-icons/ri";
 import AddPost from "./AddPost";
 import { useState, useEffect } from "react";
 
-const userId = "611d2acd2d52620015b6de6e";
-const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+const userId = `6164117136d383058470339f`;
+const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
 
 const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
   const [MyImage, setMyImage] = useState("");
@@ -72,10 +72,10 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
     try {
       let response = await fetch(endpointprofile, {
         method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        },
+        // headers: {
+        //   Authorization:
+        //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        // },
       });
       let myProfile = await response.json();
       setMyImage(myProfile.image);

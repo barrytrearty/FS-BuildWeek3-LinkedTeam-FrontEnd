@@ -40,20 +40,20 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
 
   //fetching existing info
 
-  const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`;
+  const endpoint = `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${experienceId}`;
 
   const getExperience = async () => {
     try {
       const response = await fetch(
-        endpoint,
+        endpoint
 
-        {
-          headers: {
-            method: "GET",
-            Authorization:
-              "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
-        }
+        // {
+        //   headers: {
+        //     method: "GET",
+        //     Authorization:
+        //       "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        //   },
+        // }
       );
       if (response.ok) {
         const data = await response.json();
@@ -120,11 +120,11 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
           area: area,
         }),
 
-        headers: {
-          Authorization:
-            "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   Authorization:
+        //     "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        //   "Content-Type": "application/json",
+        // },
       });
       if (response.ok) {
         console.log(role);
@@ -152,14 +152,14 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
     formData.append("experience", imageFile);
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}/picture`,
+        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${experienceId}/picture`,
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
+          // headers: {
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
         }
       );
 

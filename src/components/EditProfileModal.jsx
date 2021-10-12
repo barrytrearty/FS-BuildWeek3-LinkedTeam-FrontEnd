@@ -4,8 +4,8 @@ import { Button, Modal, Image, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FiEdit2 } from "react-icons/fi";
 
-const userId = "611d2acd2d52620015b6de6e";
-const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+const userId = "6164117136d383058470339f";
+const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
 
 const EditProfileModal = ({ setclosed }) => {
   const [show, setShow] = useState(false);
@@ -38,10 +38,10 @@ const EditProfileModal = ({ setclosed }) => {
     try {
       let response = await fetch(endpointprofile, {
         method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        },
+        // headers: {
+        //   Authorization:
+        //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        // },
       });
       let myProfile = await response.json();
       setimagePreview(myProfile.image);
@@ -64,14 +64,14 @@ const EditProfileModal = ({ setclosed }) => {
     console.log(formData);
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/picture`,
+        `https://linkedinteam.herokuapp.com/users/${userId}/picture`,
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
+          // headers: {
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
         }
       );
 

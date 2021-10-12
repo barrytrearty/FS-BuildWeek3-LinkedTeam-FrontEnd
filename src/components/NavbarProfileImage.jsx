@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
-import "./NavbarProfileImage.css"
+import "./NavbarProfileImage.css";
 
 class NavbarProfileImage extends Component {
   state = {
@@ -9,19 +9,19 @@ class NavbarProfileImage extends Component {
 
   componentDidMount = async () => {
     try {
-      var myHeaders = new Headers();
-      myHeaders.append(
-        "Authorization",
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg"
-      );
+      // var myHeaders = new Headers();
+      // myHeaders.append(
+      //   "Authorization",
+      //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg"
+      // );
 
       var requestOptions = {
         method: "GET",
-        headers: myHeaders,
+        // headers: myHeaders,
         redirect: "follow",
       };
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
+        `https://linkedinteam.herokuapp.com/users/6164117136d383058470339f`,
         requestOptions
       );
 
@@ -38,12 +38,11 @@ class NavbarProfileImage extends Component {
 
   render() {
     return (
-          <Image
-            className="navbarprofileimage ml-3"
-            src={this.state.user.image}
-            roundedCircle
-          />
-
+      <Image
+        className="navbarprofileimage ml-3"
+        src={this.state.user.image}
+        roundedCircle
+      />
     );
   }
 }

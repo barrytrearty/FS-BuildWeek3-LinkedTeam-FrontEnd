@@ -25,7 +25,7 @@ function AddPost({ MyImage, setAddPostClosed }) {
 
   const [postContent, setPostContent] = useState("");
 
-  const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const endpoint = "https://linkedinteam.herokuapp.com/posts/";
   const createPost = async () => {
     try {
       let response = await fetch(endpoint, {
@@ -35,8 +35,8 @@ function AddPost({ MyImage, setAddPostClosed }) {
         }),
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // Authorization:
+          //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
         },
       });
 

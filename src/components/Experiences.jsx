@@ -17,8 +17,8 @@ const Experiences = ({ match }) => {
   } else {
     isMe = false;
   }
-
-  const { userId } = match.params;
+  // = match.params.id;
+  const userId = "6164117136d383058470339f";
 
   const [addModalClosed, setAddModalClosed] = useState(true);
   const [editModalClosed, setEditModalClosed] = useState(true);
@@ -27,7 +27,7 @@ const Experiences = ({ match }) => {
   const getArray = async () => {
     try {
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/${userId}/experiences`
+        `https://linkedinteam.herokuapp.com/users/${userId}/experiences`
 
         // {
         //   headers: {
@@ -71,7 +71,10 @@ const Experiences = ({ match }) => {
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
         {isMe === true && (
-          <AddExperienceModal setAddModalClosed={setAddModalClosed} />
+          <AddExperienceModal
+            setAddModalClosed={setAddModalClosed}
+            userId={userId}
+          />
         )}
       </Row>
       {/* {console.log(experienceArray)} */}

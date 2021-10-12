@@ -6,8 +6,9 @@ import { CgMathPlus } from "react-icons/cg";
 import { parseISO, format } from "date-fns";
 // import { useHistory } from "react-router";
 
-function AddExperienceModal({ setAddModalClosed }) {
+function AddExperienceModal({ setAddModalClosed, userId }) {
   // const history = useHistory();
+  // const [userLike, setUserLike] = useState(false)
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -18,6 +19,8 @@ function AddExperienceModal({ setAddModalClosed }) {
     setAddModalClosed(false);
   };
 
+  // const id= match.params.id
+
   const [experience, setExperience] = useState({
     role: "",
     company: "",
@@ -25,7 +28,8 @@ function AddExperienceModal({ setAddModalClosed }) {
     endDate: "",
     description: "",
     area: "",
-    company: "",
+    username: userId,
+    // image: "",
     // "role": "CTO",
     //     "company": "Strive School",
     //     "startDate": "2019-06-16",
@@ -61,22 +65,23 @@ function AddExperienceModal({ setAddModalClosed }) {
         : null;
     // console.log(parsedDate);
     setExperience({ ...experience, endDate: parsedDate });
+    console.log(experience);
   }, [endDateObj]);
 
   const postData = async () => {
     try {
       let response = await fetch(
-        "https://linkedinteam.herokuapp.com/experiences/",
+        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/`,
         {
           method: "POST",
           body: JSON.stringify(experience),
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization:
-          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          // },
+          headers: {
+            "Content-Type": "application/json",
+            //   Authorization:
+            //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
 
-          // redirect: "follow",
+          redirect: "follow",
         }
       );
 
@@ -97,14 +102,14 @@ function AddExperienceModal({ setAddModalClosed }) {
   const fetchNewestExperienceID = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/experiences`,
+        `https://linkedinteam.herokuapp.com/users/${userId}/experiences`
 
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
-        }
+        // {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        //   },
+        // }
       );
       let experienceArray1 = await response.json();
       let lastexperience = experienceArray1[experienceArray1.length - 1];
@@ -132,7 +137,8 @@ function AddExperienceModal({ setAddModalClosed }) {
     }
     await postData();
     let id = await fetchNewestExperienceID();
-    if (imageFile.length > 0) postImage(id);
+    console.log(id);
+    if (imageFile.length > 0) await postImage(id);
     if (imageFile === undefined) console.log("Undefined image");
   };
 
@@ -151,14 +157,14 @@ function AddExperienceModal({ setAddModalClosed }) {
     console.log(formData);
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/experiences/${id}/picture`,
+        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${id}/picture`,
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          },
+          // headers: {
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
         }
       );
 
