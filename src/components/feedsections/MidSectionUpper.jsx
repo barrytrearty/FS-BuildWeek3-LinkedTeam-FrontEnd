@@ -18,7 +18,7 @@ import { RiArticleLine } from "react-icons/ri";
 import AddPost from "./AddPost";
 import { useState, useEffect } from "react";
 
-const userId = `6164117136d383058470339f`;
+const userId = `6166c0670a585e34bd212a3b`;
 const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
 
 const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
@@ -94,7 +94,7 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
         method: "POST",
         body: JSON.stringify({
           text: postContent,
-          user: "6164117136d383058470339f",
+          user: "6166c0670a585e34bd212a3b",
           username: "James",
           image: "url",
         }),

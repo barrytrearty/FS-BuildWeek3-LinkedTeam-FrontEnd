@@ -35,7 +35,7 @@ function AddPost({ MyImage, setAddPostClosed }) {
         body: JSON.stringify({
           text: postContent,
           username: "James",
-          user: "6164117136d383058470339f",
+          user: "6166c0670a585e34bd212a3b",
           image: "url",
         }),
         headers: {

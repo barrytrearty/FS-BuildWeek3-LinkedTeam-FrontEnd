@@ -4,7 +4,7 @@ import { Button, Modal, Image, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FiEdit2 } from "react-icons/fi";
 
-const userId = "6164117136d383058470339f";
+const userId = "6166c0670a585e34bd212a3b";
 const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
 
 const EditProfileModal = ({ setclosed }) => {
