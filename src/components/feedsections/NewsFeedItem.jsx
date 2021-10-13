@@ -14,13 +14,33 @@ import { RiSendPlaneFill, RiShareForwardLine } from "react-icons/ri";
 //   render() {
 
 const NewsFeedItem = (post) => {
-  // let liked = false;
+  const postLike = async () => {
+    try {
+      let response = await fetch(
+        `https://linkedinteam.herokuapp.com/posts/${post._id}/like`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            user: "6166c0670a585e34bd212a3b",
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-  // const [liked, setLiked] = useState(false);
-  // //   const [liked, setLiked] = useToggle();
-  // const changeLike = () => {
-  //   setLiked(true);
-  // };
+      if (response.ok) {
+        // const hello = response.json();
+        console.log("postLIke");
+        // handleClose();
+        // return hello;
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <Card className="cardstyling consistent-font" key={post._id}>
@@ -70,7 +90,7 @@ const NewsFeedItem = (post) => {
          */}
 
         {/* WITHOUT FUNCTIONALITY  */}
-        <Button className="midbutton pb-3" variant="light">
+        <Button className="midbutton pb-3" variant="light" onClick={postLike}>
           <AiOutlineLike
             style={{ color: "#6b6b6b" }}
             size="1.3rem"

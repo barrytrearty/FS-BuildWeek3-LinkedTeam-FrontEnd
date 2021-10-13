@@ -5,6 +5,7 @@ import EditModal from "./EditModal";
 import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
+import { AiOutlineDownload } from "react-icons/ai";
 import { BiPurchaseTag } from "react-icons/bi";
 import "./EditModal.css";
 
@@ -70,6 +71,17 @@ const Experiences = ({ match }) => {
     <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
+        <div>
+          <a
+            href={`https://linkedinteam.herokuapp.com/users/${userId}/experiences/CSV`}
+          >
+            <AiOutlineDownload
+              id="react-button"
+              size={25}
+              className="mr-auto"
+            />
+          </a>
+        </div>
         {isMe === true && (
           <AddExperienceModal
             setAddModalClosed={setAddModalClosed}

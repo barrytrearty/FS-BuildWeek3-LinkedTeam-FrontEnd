@@ -115,12 +115,16 @@ class ProfileTopCard extends Component {
                 >
                   Message
                 </Button>
-                <Button
-                  className="morebutton px-3 py-1 mb-3"
-                  variant="outline-secondary"
+                <a
+                  href={`https://linkedinteam.herokuapp.com/users/6166c0670a585e34bd212a3b/CV`}
                 >
-                  More
-                </Button>
+                  <Button
+                    className="morebutton px-3 py-1 mb-3 font-weight-bold"
+                    variant="outline-secondary"
+                  >
+                    Get CV
+                  </Button>
+                </a>
               </Col>
 
               <Col xs={0} sm={4} className="d-none d-md-block">
