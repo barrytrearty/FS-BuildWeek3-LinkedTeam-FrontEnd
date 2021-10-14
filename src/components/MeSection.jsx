@@ -4,12 +4,12 @@ import PeopleSection from "./PeopleSection";
 import { Row, Col, Container } from "react-bootstrap";
 import "./PeopleSection.css";
 
-const MeSection = () => {
+const MeSection = (userId) => {
   return (
     <Row>
       <Col xs={12} sm={12} lg={8}>
-        <ProfileTopCard />
-        <AfterMain />
+        <ProfileTopCard userId={userId} />
+        <AfterMain userId={userId} />
       </Col>
 
       <Col xs={12} sm={12} lg={4}>

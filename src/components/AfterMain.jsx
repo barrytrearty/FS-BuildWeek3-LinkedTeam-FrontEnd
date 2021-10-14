@@ -2,7 +2,7 @@ import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import Experiences from "./Experiences";
 
-const AfterMain = () => {
+const AfterMain = (userId) => {
   return (
     <Container className="px-0">
       <div className="after-main">
@@ -60,7 +60,7 @@ const AfterMain = () => {
           </a>
         </Card>
 
-        <Experiences />
+        <Experiences userId={userId} />
 
         <Card className="px-4 py-2 mb-3 sectiontext pt-4">
           <Row>

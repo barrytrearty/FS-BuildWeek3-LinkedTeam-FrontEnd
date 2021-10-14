@@ -5,7 +5,8 @@ import MidSection from "./feedsections/MidSection";
 import MidSectionUpper from "./feedsections/MidSectionUpper";
 import RightSection from "./feedsections/RightSection";
 
-const NewsFeed = () => {
+const NewsFeed = (userId) => {
+  // const userId = "6166c0670a585e34bd212a3b";
   const [addPostClosed, setAddPostClosed] = useState(false);
   const [addImagePostClosed, setAddImagePostClosed] = useState(false);
   return (
@@ -20,10 +21,12 @@ const NewsFeed = () => {
             <MidSectionUpper
               setAddPostClosed={setAddPostClosed}
               setAddImagePostClosed={setAddImagePostClosed}
+              userId={userId}
             />
             <MidSection
               addPostClosed={addPostClosed}
               addImagePostClosed={addImagePostClosed}
+              userId={userId}
             />
           </Col>
 

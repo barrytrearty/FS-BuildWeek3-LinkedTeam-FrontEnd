@@ -22,8 +22,8 @@ strong {
 }
 
 .shopifylogo {
-    height: 2rem;
-    width: 2rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 /* button {
@@ -102,14 +102,29 @@ img {
 }
 
 .midbutton {
-    background-color: white;
-    border: none;
+  background-color: white;
+  border: none;
 }
 
 .topmargin {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 .topmidmargin {
-    margin-top: 4.5rem;
+  margin-top: 4.5rem;
+}
+
+#postButton {
+  background-color: #0072b1;
+  border-radius: 30px;
+  padding: 5px 15px;
+}
+
+.comment {
+  background-color: #e4e4e4;
+  border-radius: 5px;
+}
+
+.comment-outer:nth-child(5) {
+  margin-top: 10px;
 }

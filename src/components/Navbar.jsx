@@ -2,6 +2,7 @@ import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
 import NavbarProfile from "./NavbarProfile";
+import NavbarProfileImage from "./NavbarProfileImage";
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,7 +34,6 @@ import {
   faHouseUser,
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
-import NavbarProfileImage from "./NavbarProfileImage";
 
 class BootstrapNavbar extends React.Component {
   render() {

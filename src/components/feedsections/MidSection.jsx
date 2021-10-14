@@ -9,7 +9,7 @@ import MyLoader from "./MyLoader";
 import NewsFeedItem from "./NewsFeedItem";
 // import {RiShareForwardLine}
 
-const MidSection = ({ addPostClosed, addImagePostClosed }) => {
+const MidSection = ({ addPostClosed, addImagePostClosed, userId }) => {
   // const [hasPostClosed, setHasPostClosed] = useState(addPostClosed);
   const [postsArray, setPostsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -118,7 +118,10 @@ const MidSection = ({ addPostClosed, addImagePostClosed }) => {
       {postsArray
         .slice(-25)
         .reverse()
-        .map((post) => NewsFeedItem(post))}
+        .map((post) => (
+          <NewsFeedItem post={post} userId={userId} />
+        ))}
+
       {/* {setIsLoading(false)} */}
     </div>
   );

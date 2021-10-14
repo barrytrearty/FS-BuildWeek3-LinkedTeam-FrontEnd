@@ -18,10 +18,15 @@ import { RiArticleLine } from "react-icons/ri";
 import AddPost from "./AddPost";
 import { useState, useEffect } from "react";
 
-const userId = `6166c0670a585e34bd212a3b`;
-const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
+// const userId = `6166c0670a585e34bd212a3b`;
+// const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
 
-const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
+const MidSectionUpper = ({
+  setAddPostClosed,
+  setAddImagePostClosed,
+  userId,
+}) => {
+  // const userId = userId;
   const [MyImage, setMyImage] = useState("");
   const [showImageModal, setShowImageModal] = useState(false);
   const [showPostModal, setShowPostModal] = useState(false);
@@ -70,13 +75,16 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
 
   const getMyProfile = async () => {
     try {
-      let response = await fetch(endpointprofile, {
-        method: "GET",
-        // headers: {
-        //   Authorization:
-        //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        // },
-      });
+      let response = await fetch(
+        `https://linkedinteam.herokuapp.com/users/${userId}`,
+        {
+          method: "GET",
+          // headers: {
+          //   Authorization:
+          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          // },
+        }
+      );
       let myProfile = await response.json();
       setMyImage(myProfile.image);
     } catch (error) {
