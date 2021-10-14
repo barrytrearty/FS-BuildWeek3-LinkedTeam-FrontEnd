@@ -16,16 +16,7 @@ const MidSection = ({ addPostClosed, addImagePostClosed }) => {
 
   const getPosts = async () => {
     try {
-      let response = await fetch(
-        `https://linkedinteam.herokuapp.com/posts `
-
-        // {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        //   },
-        // }
-      );
+      let response = await fetch(`https://linkedinteam.herokuapp.com/posts `);
       let postsProm = await response.json();
       setPostsArray(postsProm);
       console.log("Posts" + postsArray);

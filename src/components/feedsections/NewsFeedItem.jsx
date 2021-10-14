@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Card, Col, Button, Row } from "react-bootstrap";
 import "./MidSection.css";
 import { CgMathPlus } from "react-icons/cg";
@@ -14,6 +14,21 @@ import { RiSendPlaneFill, RiShareForwardLine } from "react-icons/ri";
 //   render() {
 
 const NewsFeedItem = (post) => {
+  const [isLiked, setIsLiked] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
+
+  const handleToggle = () => {
+    postLike();
+    setIsLiked(!isLiked);
+  };
+
+  // const [isLiked, setIsLiked] = useState(true);
+  // const handleIsLiked = () => {
+  //   setIsLiked(!isLiked);
+  //   console.log(isLiked);
+  // };
+
   const postLike = async () => {
     try {
       let response = await fetch(
@@ -28,10 +43,12 @@ const NewsFeedItem = (post) => {
           },
         }
       );
-
+      // handleToggle();
+      // setIsLiked(true);
       if (response.ok) {
         // const hello = response.json();
         console.log("postLIke");
+
         // handleClose();
         // return hello;
       } else {
@@ -90,14 +107,65 @@ const NewsFeedItem = (post) => {
          */}
 
         {/* WITHOUT FUNCTIONALITY  */}
-        <Button className="midbutton pb-3" variant="light" onClick={postLike}>
-          <AiOutlineLike
-            style={{ color: "#6b6b6b" }}
-            size="1.3rem"
-            className="mr-1"
-          />
+        {/* <Button
+          className="midbutton pb-3"
+          variant="light"
+          onClick={() => handleToggle}
+        >
+          {isLiked ? (
+            <AiFillLike
+              style={{ color: "#0072B1" }}
+              size="1.3rem"
+              className="mr-1"
+            />
+          ) : (
+            <AiOutlineLike
+              style={{ color: "#6b6b6b" }}
+              size="1.3rem"
+              className="mr-1"
+            />
+          )}
           Like
-        </Button>
+        </Button> */}
+
+        {/* {isLiked ? (
+          <Button
+            className="midbutton pb-3"
+            variant="light"
+            onClick={handleToggle}
+          >
+            <AiFillLike
+              style={{ color: "#6b6b6b" }}
+              size="1.3rem"
+              className="mr-1"
+            />
+            Like
+          </Button>
+        ) : (
+          <Button
+            className="midbutton pb-3"
+            variant="light"
+            onClick={handleToggle}
+          >
+            <AiOutlineLike
+              style={{ color: "#6b6b6b" }}
+              size="1.3rem"
+              className="mr-1"
+            />
+            Like
+          </Button>
+        )} */}
+
+        {/* <Button onClick={() => handleIsLiked()}>Like</Button>
+        {isLiked ? (
+          <div variant="success" className="text-center">
+            Liked
+          </div>
+        ) : (
+          <div variant="danger" className="text-center">
+            Not Liked
+          </div>
+        )} */}
 
         {/* <Button variant="light" onChange={changeLike}>
           {liked ? <AiFillLike /> + "Like" : <AiOutlineLike /> + "Unlike"}
