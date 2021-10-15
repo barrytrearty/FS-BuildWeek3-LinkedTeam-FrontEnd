@@ -65,7 +65,7 @@ const Experiences = ({ match, userId }) => {
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
         <div>
           <a
-            href={`https://linkedinteam.herokuapp.com/users/${userId}/experiences/CSV`}
+            href={`https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/CSV`}
           >
             <AiOutlineDownload
               id="react-button"
