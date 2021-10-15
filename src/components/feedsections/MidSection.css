@@ -128,3 +128,8 @@ img {
 .comment-outer:nth-child(5) {
   margin-top: 10px;
 }
+
+.like-comment {
+  box-shadow: 0;
+  /* background-color: white; */
+}

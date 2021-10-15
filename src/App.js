@@ -20,7 +20,7 @@ import NewsFeed from "./components/NewsFeed";
 // import ScrollableNav from "./components/ScrollableNav";
 
 function App() {
-  const userId = "6169510866de27920c668f42";
+  const userId = "6169887fd528a3138bcccdfe";
 
   return (
     <Router>
