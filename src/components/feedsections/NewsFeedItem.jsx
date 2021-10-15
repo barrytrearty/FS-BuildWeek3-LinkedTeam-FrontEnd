@@ -245,11 +245,15 @@ const NewsFeedItem = ({ post }, userId) => {
             <Row className="comment-outer">
               {console.log(comment)}
               <Col xs={2}>
-                <img src={post.user.image} className="mr-5 userImage" />
+                <img src={comment.user.image} className="mr-5 userImage" />
               </Col>
               <Col xs={9} className="comment my-1">
                 <Row>
-                  <span className="font-weight-bold m-2"> {comment.user}</span>{" "}
+                  <span className="font-weight-bold m-2">
+                    {" "}
+                    {comment.user.name}
+                    {comment.user.surname}
+                  </span>
                 </Row>
                 <Row>
                   {" "}
