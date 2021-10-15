@@ -1,13 +1,9 @@
 import React from "react";
 import { Button, Modal, Image, Spinner } from "react-bootstrap";
-
 import { useState, useEffect } from "react";
 import { FiEdit2 } from "react-icons/fi";
 
-const userId = "6166c0670a585e34bd212a3b";
-const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
-
-const EditProfileModal = ({ setclosed }) => {
+const EditProfileModal = ({ setclosed, userId }) => {
   const [show, setShow] = useState(false);
   const [imageUploaded, setimageUploaded] = useState(false);
   const [imageFile, setimageFile] = useState();
@@ -36,13 +32,13 @@ const EditProfileModal = ({ setclosed }) => {
 
   const getMyProfile = async () => {
     try {
-      let response = await fetch(endpointprofile, {
-        method: "GET",
-        // headers: {
-        //   Authorization:
-        //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        // },
-      });
+      console.log(userId);
+      let response = await fetch(
+        `https://linkedinteam.herokuapp.com/users/${userId}`,
+        {
+          method: "GET",
+        }
+      );
       let myProfile = await response.json();
       setimagePreview(myProfile.image);
     } catch (error) {

@@ -2,9 +2,10 @@ import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import Experiences from "./Experiences";
 
-const AfterMain = (userId) => {
+const AfterMain = ({ userId }) => {
   return (
     <Container className="px-0">
+      {console.log(userId)}
       <div className="after-main">
         <Card
           id="activity-card"

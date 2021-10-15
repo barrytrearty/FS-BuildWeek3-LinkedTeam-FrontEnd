@@ -11,7 +11,7 @@ import "./MidSection.css";
 import { AiOutlineUser } from "react-icons/ai";
 // import { useHistory } from "react-router-dom";
 
-function AddPost({ MyImage, setAddPostClosed }) {
+function AddPost({ MyImage, setAddPostClosed, userId }) {
   // const history = useHistory();
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -30,12 +30,13 @@ function AddPost({ MyImage, setAddPostClosed }) {
   const endpoint = "https://linkedinteam.herokuapp.com/posts";
   const createPost = async () => {
     try {
+      console.log(userId.userId);
       let response = await fetch(endpoint, {
         method: "POST",
         body: JSON.stringify({
           text: postContent,
           username: "James",
-          user: "6166c0670a585e34bd212a3b",
+          user: userId.userId,
           image: "url",
         }),
         headers: {

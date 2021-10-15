@@ -18,8 +18,8 @@ import {
 import { BiCommentDetail } from "react-icons/bi";
 import { RiSendPlaneFill, RiShareForwardLine } from "react-icons/ri";
 
-const NewsFeedItem = ({ post }, userId) => {
-  console.log(post);
+const NewsFeedItem = ({ post, userId }) => {
+  // console.log(post);
 
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
@@ -48,12 +48,13 @@ const NewsFeedItem = ({ post }, userId) => {
 
   const postLike = async () => {
     try {
+      console.log(userId.userId);
       let response = await fetch(
         `https://linkedinteam.herokuapp.com/posts/${post._id}/like`,
         {
           method: "POST",
           body: JSON.stringify({
-            user: userId,
+            user: userId.userId,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +79,7 @@ const NewsFeedItem = ({ post }, userId) => {
         {
           method: "POST",
           body: JSON.stringify({
-            user: userId,
+            user: userId.userId,
             comment: commentText,
           }),
           headers: {
@@ -89,6 +90,7 @@ const NewsFeedItem = ({ post }, userId) => {
 
       if (response.ok) {
         console.log("postComment");
+        getComments();
       } else {
         alert("Error! Please complete the form!");
       }
@@ -220,7 +222,10 @@ const NewsFeedItem = ({ post }, userId) => {
                 placeholder="Add a comment..."
                 aria-label="Comment"
                 aria-describedby="basic-addon1"
-                onChange={(e) => setCommentText(e.target.value)}
+                onChange={(e) => {
+                  setCommentText(e.target.value);
+                }}
+                onSubmit={(e) => e.target.reset()}
               />
             </Col>
           </Row>
@@ -233,7 +238,10 @@ const NewsFeedItem = ({ post }, userId) => {
                   id="postButton"
                   variant="primary"
                   className="offset-1 px-3 py-1 mt-2 mb-3"
-                  onClick={postComment}
+                  onClick={() => {
+                    postComment();
+                    setCommentText("");
+                  }}
                 >
                   Post
                 </Button>
@@ -243,7 +251,7 @@ const NewsFeedItem = ({ post }, userId) => {
           {/* <Row> */}
           {commentsArray.map((comment) => (
             <Row className="comment-outer">
-              {console.log(comment)}
+              {/* {console.log(comment)} */}
               <Col xs={2}>
                 <img src={comment.user.image} className="mr-5 userImage" />
               </Col>

@@ -32,19 +32,14 @@ class ProfileTopCard extends Component {
 
   fetchDetails = async () => {
     try {
-      // var myHeaders = new Headers();
-      // myHeaders.append(
-      //   "Authorization",
-      //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg"
-      // );
-
-      var requestOptions = {
+      console.log(this.props.userId.userId);
+      const requestOptions = {
         method: "GET",
         // headers: myHeaders,
         redirect: "follow",
       };
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/6166c0670a585e34bd212a3b`,
+        `https://linkedinteam.herokuapp.com/users/${this.props.userId.userId}`,
         requestOptions
       );
 
@@ -74,7 +69,10 @@ class ProfileTopCard extends Component {
               src={this.state.user.image}
               roundedCircle
             />
-            <EditProfileModal setclosed={this.setImageClosed} />
+            <EditProfileModal
+              setclosed={this.setImageClosed}
+              userId={this.props.userId.userId}
+            />
           </div>
 
           <Card.Body className="pt-1 px-1 pb-2">
@@ -116,7 +114,7 @@ class ProfileTopCard extends Component {
                   Message
                 </Button>
                 <a
-                  href={`https://linkedinteam.herokuapp.com/users/6166c0670a585e34bd212a3b/CV`}
+                  href={`https://linkedinteam.herokuapp.com/users/${this.props.userId.userId}/CV`}
                 >
                   <Button
                     className="morebutton px-3 py-1 mb-3 font-weight-bold"

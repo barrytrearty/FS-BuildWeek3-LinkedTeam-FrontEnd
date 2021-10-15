@@ -9,7 +9,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { BiPurchaseTag } from "react-icons/bi";
 import "./EditModal.css";
 
-const Experiences = ({ match }) => {
+const Experiences = ({ match, userId }) => {
   // const experienceId = match.params.id;
   let urlstring = window.location.href.slice(-2);
   let isMe = false;
@@ -18,8 +18,6 @@ const Experiences = ({ match }) => {
   } else {
     isMe = false;
   }
-  // = match.params.id;
-  const userId = "6166c0670a585e34bd212a3b";
 
   const [addModalClosed, setAddModalClosed] = useState(true);
   const [editModalClosed, setEditModalClosed] = useState(true);
@@ -27,15 +25,9 @@ const Experiences = ({ match }) => {
 
   const getArray = async () => {
     try {
+      console.log(userId);
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences`
-
-        // {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZTBiMTJkNTI2MjAwMTViNmRjOGQiLCJpYXQiOjE2MzEwMTE2NDMsImV4cCI6MTYzMjIyMTI0M30.wxo-L7vPKDv0DeIAf5S_h2cwEHJqqvPcL0Il7sQlPYs",
-        //   },
-        // }
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences`
       );
       let experienceArray1 = await response.json();
       setExperienceArray(experienceArray1);

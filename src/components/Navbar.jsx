@@ -40,6 +40,7 @@ class BootstrapNavbar extends React.Component {
     return (
       <Container className="navContainer d-flex flex-row justify-content-center">
         {/* <div className="row" style={{ height: "3.5rem"}}> */}
+        {console.log(this.props.userId)}
 
         <Row className="NavRow">
           <Col>
@@ -147,14 +148,14 @@ class BootstrapNavbar extends React.Component {
                         </Nav.Link>
 
                         <div className="ml-0">
-                          <NavbarProfileImage />
+                          <NavbarProfileImage userId={this.props.userId} />
 
                           <NavDropdown
                             title="Me"
                             id="basic-nav-dropdown"
                             className="ml-2"
                           >
-                            <NavbarProfile />
+                            <NavbarProfile userId={this.props.userId} />
 
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.1">

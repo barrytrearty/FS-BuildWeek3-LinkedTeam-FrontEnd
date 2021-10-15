@@ -21,7 +21,7 @@ class ScrollableNavProfile extends Component {
         redirect: "follow",
       };
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/6166c0670a585e34bd212a3b`,
+        `https://linkedinteam.herokuapp.com/users/${this.props.userId.userId}`,
         requestOptions
       );
 

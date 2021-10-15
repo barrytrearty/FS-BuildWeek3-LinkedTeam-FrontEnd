@@ -18,15 +18,11 @@ import { RiArticleLine } from "react-icons/ri";
 import AddPost from "./AddPost";
 import { useState, useEffect } from "react";
 
-// const userId = `6166c0670a585e34bd212a3b`;
-// const endpointprofile = `https://linkedinteam.herokuapp.com/users/${userId}`;
-
 const MidSectionUpper = ({
   setAddPostClosed,
   setAddImagePostClosed,
   userId,
 }) => {
-  // const userId = userId;
   const [MyImage, setMyImage] = useState("");
   const [showImageModal, setShowImageModal] = useState(false);
   const [showPostModal, setShowPostModal] = useState(false);
@@ -35,8 +31,6 @@ const MidSectionUpper = ({
   const [imagePreview, setimagePreview] = useState();
   const [postContent, setPostContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  // const [addPostClose, setAddPostClosed] = useState(false);
 
   const handleCloseImageModal = () => {
     setShowImageModal(false);
@@ -75,14 +69,11 @@ const MidSectionUpper = ({
 
   const getMyProfile = async () => {
     try {
+      console.log(userId.userId);
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}`,
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}`,
         {
           method: "GET",
-          // headers: {
-          //   Authorization:
-          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          // },
         }
       );
       let myProfile = await response.json();
@@ -102,14 +93,12 @@ const MidSectionUpper = ({
         method: "POST",
         body: JSON.stringify({
           text: postContent,
-          user: "6166c0670a585e34bd212a3b",
+          user: userId.userId,
           username: "James",
           image: "url",
         }),
         headers: {
           "Content-Type": "application/json",
-          // Authorization:
-          //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
         },
       });
 
@@ -124,16 +113,7 @@ const MidSectionUpper = ({
   };
   const fetchNewestPostID = async () => {
     try {
-      let response = await fetch(
-        `https://linkedinteam.herokuapp.com/posts/`
-
-        // {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-        //   },
-        // }
-      );
+      let response = await fetch(`https://linkedinteam.herokuapp.com/posts/`);
       let PostArray = await response.json();
       let lastpost = PostArray[PostArray.length - 1];
       return lastpost._id;
@@ -161,10 +141,6 @@ const MidSectionUpper = ({
         {
           method: "POST",
           body: formData,
-          // headers: {
-          //   Authorization:
-          //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
-          // },
         }
       );
 
@@ -292,7 +268,11 @@ const MidSectionUpper = ({
             <img src={MyImage} className="userImage" />
           </Col>
           <Col xs={11} className="mt-3">
-            <AddPost MyImage={MyImage} setAddPostClosed={setAddPostClosed} />
+            <AddPost
+              MyImage={MyImage}
+              setAddPostClosed={setAddPostClosed}
+              userId={userId}
+            />
           </Col>
         </Row>
         {/* <Row className="text-center SpaceBetween"> */}
