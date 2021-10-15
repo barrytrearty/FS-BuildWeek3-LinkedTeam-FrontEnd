@@ -10,7 +10,7 @@ const DeleteExperience = ({ userId, experienceId, handleClose }) => {
   const deleteThisExperience = async () => {
     try {
       const response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${experienceId}`,
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/${experienceId}`,
         {
           method: "DELETE",
         }

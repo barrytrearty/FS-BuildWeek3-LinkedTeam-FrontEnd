@@ -40,7 +40,7 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
 
   //fetching existing info
 
-  const endpoint = `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${experienceId}`;
+  const endpoint = `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/${experienceId}`;
 
   const getExperience = async () => {
     try {
@@ -154,7 +154,7 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
     formData.append("experience", imageFile);
     try {
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${experienceId}/picture`,
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/${experienceId}/picture`,
         {
           method: "POST",
           body: formData,

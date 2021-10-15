@@ -9,43 +9,12 @@ import { BiPurchaseTag } from "react-icons/bi";
 import "./EditModal.css";
 
 const OtherExperiences = ({ profileId }) => {
-  // const experienceId = match.params.id;
-  //   let urlstring = window.location.href.slice(-2);
-  //   let isMe = false;
-  //   if (urlstring === "me") {
-  //     isMe = true;
-  //   } else {
-  //     isMe = false;
-  //   }
-
-  //   EXPERIENCES:
-
-  //   - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
-  //   Get user experiences
-  //   - POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
-  //   Create an experience. NOTE: every user is allowed to mess only with his own experiences
-  //   - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-  //   Get a specific experience
-  //   - PUT https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-  //   Get a specific experience
-  //   - DELETE https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-  //   Get a specific experience
-
-  //   const userId = "611d2acd2d52620015b6de6e";
-
   const [experienceArray, setExperienceArray] = useState([]);
 
   const getArray = async () => {
     try {
       let response = await fetch(
         `https://linkedinteam.herokuapp.com/users/${profileId}/experiences`
-
-        // {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZTBiMTJkNTI2MjAwMTViNmRjOGQiLCJpYXQiOjE2MzEwMTE2NDMsImV4cCI6MTYzMjIyMTI0M30.wxo-L7vPKDv0DeIAf5S_h2cwEHJqqvPcL0Il7sQlPYs",
-        //   },
-        // }
       );
       let experienceArray1 = await response.json();
       setExperienceArray(experienceArray1);
@@ -79,8 +48,8 @@ const OtherExperiences = ({ profileId }) => {
 
       {experienceArray.map((experience) => (
         <Row key={experience._id}>
-          <Col xs={1} className="mr-4">
-            <img src={experience.image} alt="" className="mt-3" />
+          <Col xs={2} className="mr-4">
+            <img src={experience.image} alt="" className="mt-3 imageSize" />
           </Col>
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">

@@ -28,7 +28,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
     endDate: "",
     description: "",
     area: "",
-    username: userId,
+    username: userId.userId,
     image: "",
     // "role": "CTO",
     //     "company": "Strive School",
@@ -75,8 +75,9 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
 
   const postData = async () => {
     try {
+      console.log(userId.userId);
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/`,
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/`,
         {
           method: "POST",
           body: JSON.stringify(experience),
@@ -107,7 +108,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
   const fetchNewestExperienceID = async () => {
     try {
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences`
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences`
 
         // {
         //   headers: {
@@ -148,7 +149,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
   };
 
   const imageUpload = (e) => {
-    if (e.target.files.length == 0) {
+    if (e.target.files.length === 0) {
       console.log("No image selected!");
     } else {
       setimageFile(e.target.files[0]);
@@ -162,7 +163,7 @@ function AddExperienceModal({ setAddModalClosed, userId }) {
     console.log(formData);
     try {
       let response = await fetch(
-        `https://linkedinteam.herokuapp.com/users/${userId}/experiences/${id}/picture`,
+        `https://linkedinteam.herokuapp.com/users/${userId.userId}/experiences/${id}/picture`,
         {
           method: "POST",
           body: formData,
